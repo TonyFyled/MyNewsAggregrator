@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoVibe - Live News Aggregator</title>
+    <title>Live News Aggregator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon-32x32.png">
     <style>
         * {
             margin: 0;
@@ -67,7 +68,7 @@
 
         @keyframes glow {
             0%, 100% { filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5)); }
-            50% { filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.8)); }
+            50% { filter: drop-shadow(0 0 20px rgba(99, 241, 113, 0.3)); }
         }
 
         .live-indicator {
@@ -159,7 +160,7 @@
 
         .section-title {
             font-size: 2rem;
-            background: linear-gradient(135deg, #6366f1, #a855f7);
+            background: black;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -207,14 +208,14 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+            background: black;
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
 
         .news-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 12px 30px rgba(99, 241, 113, 0.3);
             border-color: rgba(99, 102, 241, 0.5);
         }
 
@@ -440,7 +441,121 @@
                 transform: translateY(0);
             }
         }
+        /* Phone — 360-390px */
+        @media (max-width: 480px) {
 
+            .header { 
+             display: block;
+             justify-content: space-between;
+             align-items: center;
+             padding: 5px;
+            }
+            .live-indicator{
+                display: none;
+            }
+            .logo-indicator{
+                display: block;
+            }
+            .nav{
+                padding: 10px 0px;
+            }
+            .nav-btn{
+                padding: 6px 10px;
+            }
+            .logo{
+                padding-bottom: 20px;
+            }
+            .trending-bar {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .trending-label {
+                position: relative;
+                z-index: 2;
+                background: #f5f2e8;
+                padding-right: 12px;
+                flex-shrink: 0;
+            }
+
+            .trending-ticker-wrap {
+                flex: 1;
+                overflow: hidden;
+                mask-image: linear-gradient(to right, transparent 0%, black 15%, black 90%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 90%, transparent 100%);
+            }
+
+            .trending-tokens {
+                animation: ticker 30s linear infinite;
+                width: max-content;
+            }
+
+            .trending-tokens:hover {
+                animation-play-state: paused;
+            }
+
+            @keyframes ticker {
+                0%   { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+        }
+
+        /* Tablet — 768px */
+        @media (max-width: 768px) {
+            .header { 
+             justify-content: space-between;
+             align-items: center;
+             padding: 5px;
+            }
+            .live-indicator{
+                display: none;
+            }
+            .logo-indicator{
+                display: block;
+            }
+            .nav{
+                padding: 10px 0px;
+            }
+            .nav-btn{
+                padding: 6px 10px;
+            }
+            .logo{
+                padding: 20px;
+            }
+            .trending-bar {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .trending-label {
+                position: relative;
+                z-index: 2;
+                background: #f5f2e8;
+                padding-right: 12px;
+                flex-shrink: 0;
+            }
+
+            .trending-ticker-wrap {
+                flex: 1;
+                overflow: hidden;
+                mask-image: linear-gradient(to right, transparent 0%, black 15%, black 90%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 90%, transparent 100%);
+            }
+
+            .trending-tokens {
+                animation: ticker 30s linear infinite;
+                width: max-content;
+            }
+
+            .trending-tokens:hover {
+                animation-play-state: paused;
+            }
+
+            @keyframes ticker {
+                0%   { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+        }
     </style>
 </head>
 <body>
